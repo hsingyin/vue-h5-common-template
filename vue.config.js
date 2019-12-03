@@ -28,7 +28,7 @@ const cdn = {
 }
 module.exports = {
   // 根据环境变量部署应用包时的基本 URL,生产环境需要替换成打包的路径
-  publicPath: IS_PROD ? '/projectName/' : '/',
+  publicPath: IS_PROD ? '/' : '/',
 
   outputDir: 'dist',
 
