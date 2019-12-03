@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - "12"
+services:
+  - docker
+
+before_install:
+  - npm install
+
+script:
+  - npm run build
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker build -t hsingyin/vue-h5-common-template:latest .
+  - docker push hsingyin/vue-h5-common-template:latest
+
