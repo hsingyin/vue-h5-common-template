@@ -10,6 +10,6 @@ before_install:
 script:
   - npm run build
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t hsingyin/vue-h5-common-template:latest .
+  - docker build -t hsingyin/vue-h5-common-template:latest
   - docker push hsingyin/vue-h5-common-template:latest
 
