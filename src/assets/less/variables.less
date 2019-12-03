@@ -1,0 +1,99 @@
+//字号
+@font-size54: 54px;
+@font-size48: 48px;
+@font-size36: 36px;
+@font-size32: 32px;
+@font-size30: 30px;
+@font-size25: 25px;
+@font-size24: 24px;
+@font-size20: 20px;
+@font-size18: 18px;
+@font-size16: 16px;
+@font-size15: 15px;
+@font-size14: 14px;
+@font-size13: 13px;
+@font-size12: 12px;
+
+//字体色
+@font-color-48: #484848;
+@font-color-white: #fff;
+//主色
+@font-color-3379ff: #3379ff;
+//次色
+@font-color-black: #000;
+
+//背景色
+@bg-color-white: #fff;
+@bg-color-f5: #f5f5f5;
+@bg-dark-blue: #BAD0EA;
+@bg-blue: #1B65B9;
+
+//边框色
+@border-color-white: #fff;
+
+/*处理元素高度塌陷*/
+.clear {
+    clear: both;
+}
+.clearfix:after {
+    display: block;
+    clear: both;
+    height: 0px;
+    overflow: hidden;
+    content: "\200B"
+}
+.clearfix {
+    *zoom: 1;
+}
+//圆角半径
+.border-radius (@radius: 5px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+
+//透明度
+.opacity(@opacity) {
+  -webkit-opacity: @opacity;
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  opacity: @opacity;
+  // IE8 filter
+  @opacity-ie: (@opacity * 100);
+  /* filter: ~"alpha(opacity=@{opacity-ie})"; */
+}
+
+// px转rem example: .px2rem(width, 750);
+.px2rem(@name, @px) {
+    @{name}: @px / 75 * 1rem;
+}
+.px2px(@name, @px){
+    @{name}: round(@px / 2) * 1px;
+
+  [data-dpr="2"] & {
+      @{name}: @px * 1px;
+  }
+  // for mx3
+  [data-dpr="2.5"] & {
+      @{name}: round(@px * 2.5 / 2) * 1px;
+  }
+  // for 小米note
+  [data-dpr="2.75"] & {
+      @{name}: round(@px * 2.75 / 2) * 1px;
+  }
+  [data-dpr="3"] & {
+      @{name}: round(@px / 2 * 3) * 1px
+  }
+  // for 三星note4
+  [data-dpr="4"] & {
+      @{name}: @px * 2px;
+  }
+}
+//字体
+.ftsize(@px){
+  .px2px(font-size, @px);
+}
+//backgroundsize
+.bgsize(@width, @height) {
+  background-size: @width / 75 * 1rem, @height / 75 * 1rem;
+}
