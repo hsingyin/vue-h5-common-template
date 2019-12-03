@@ -1,7 +1,6 @@
-FROM node:10.16.0
-RUN apt-get update \    && apt-get install -y nginx
-WORKDIR /app
-COPY . /app/
+FROM nginx
+
+COPY ./dist/ /usr/share/nginx/html/
+COPY ./vhost.nginx.conf /etc/nginx/conf.d/vue-h5-common-template.conf
+
 EXPOSE 80
-RUN  npm install \     && npm run build \     && cp -r dist/* /var/www/html \     && rm -rf /app
-CMD ["nginx","-g","daemon off;"]
