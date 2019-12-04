@@ -1,4 +1,4 @@
-# vue-common-h5-template
+# vue-common-h5-template ![](https://api.travis-ci.org/hsingyin/vue-h5-common-template.svg?branch=master)
 基于[vue-cli4](https://cli.vuejs.org/zh/) 搭建的初始H5模板，快速构建面向现代浏览器的H5初始工程
 
 ## 项目架构
@@ -44,10 +44,10 @@
 - **环境变量**：目前只配置了生产环境`env.production`，可以按需配置使用
 
 - **针对生产环境的构建流程配置和优化**：`cdn`加速，`chunks`分割，`gzip`压缩，`soureMap`默认关闭
-
+- **持续集成**： 增加`Travis-CI`自动化打包docker镜像push到对应的[docker仓库](https://hub.docker.com/repository/docker/hsingyin/vue-h5-common-template)中，开箱即用
 ### 待实现特性
 
 - [ ] 按需引入UI组件
 - ~~px转rem无感~~
 - [ ] 更新移动端dpr适配方案
-
+- [x] 增加`docker` + `travis ci`持续集成
