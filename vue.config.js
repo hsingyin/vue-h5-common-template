@@ -10,7 +10,6 @@ const IS_NEED_CDN = false
 const cdn = {
   list: {
     'vue': 'Vue',
-    'vue-router': 'VueRouter',
     'vuex': 'Vuex',
     'axios': 'axios',
     'mint-ui': 'MINT'
@@ -20,7 +19,6 @@ const cdn = {
   ],
   js: [
     'https://cdn.bootcss.com/vue/2.6.10/vue.runtime.min.js',
-    'https://cdn.bootcss.com/vue-router/3.1.3/vue-router.min.js',
     'https://cdn.bootcss.com/vuex/3.1.2/vuex.min.js',
     'https://cdn.bootcss.com/axios/0.19.0/axios.min.js',
     'https://cdn.bootcss.com/mint-ui/2.2.13/index.js'
@@ -28,7 +26,7 @@ const cdn = {
 }
 module.exports = {
   // 根据环境变量部署应用包时的基本 URL,生产环境需要替换成打包的路径
-  publicPath: IS_PROD ? '/' : '/',
+  publicPath: './',
 
   outputDir: 'dist',
 
@@ -74,7 +72,7 @@ module.exports = {
       )
       if (IS_NEED_CDN) {
         // cdn方式引入，不打包进去
-        config.externals = cdn.list        
+        config.externals = cdn.list
       }
       // 合并plugins
       config.plugins = [
@@ -116,7 +114,7 @@ module.exports = {
           .tap(args => {
             args[0].cdn = cdn
             return args
-        })        
+        })
       }
     }
   },

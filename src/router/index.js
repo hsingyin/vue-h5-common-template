@@ -23,4 +23,14 @@ const router = new VueRouter({
   routes
 })
 
+// 解决因为加了路由守卫后跳转报错Uncaught (in promise) undefined 问题
+
+const originalPush = VueRouter.prototype.push
+
+VueRouter.prototype.push = function push(location, onResolve, onReject) {
+  if (onResolve || onReject) return originalPush.call(this, location, onResolve, onReject)
+  return originalPush.call(this, location).catch(err => err)
+}
+
+
 export default router
